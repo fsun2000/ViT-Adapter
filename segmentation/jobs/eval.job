@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#SBATCH --partition=gpu_titanrtx
+#SBATCH --job-name=ViT
+#SBATCH --gpus=4
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=24
+#SBATCH --time=36:00:00
+#SBATCH --mem=190000MB
+#SBATCH --output=job_logs/eval_testset.out
+
+
+module purge
+source activate oneformer
+
+sh dist_test.sh configs/scannet/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p.py \
+    $HOME/ViT-Adapter/segmentation/work_dirs/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p_backup/latest.pth \
+    4 --eval mIoU
+
+#python test.py configs/scannet/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p.py \
+#    /project/fsun/ViT-Adapter/mask2former_beitv2_adapter_large_896_80k_ade20k.pth --eval mIoU

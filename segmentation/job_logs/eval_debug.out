@@ -1,0 +1,362 @@
+/var/spool/slurm/slurmd/job10576595/slurm_script: line 14: activate: No such file or directory
+/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/distributed/launch.py:163: DeprecationWarning: The 'warn' method is deprecated, use 'warning' instead
+  logger.warn(
+The module torch.distributed.launch is deprecated and going to be removed in future.Migrate to torch.distributed.run
+WARNING:torch.distributed.run:--use_env is deprecated and will be removed in future releases.
+ Please read local_rank from `os.environ('LOCAL_RANK')` instead.
+INFO:torch.distributed.launcher.api:Starting elastic_operator with launch configs:
+  entrypoint       : ./test.py
+  min_nodes        : 1
+  max_nodes        : 1
+  nproc_per_node   : 4
+  run_id           : none
+  rdzv_backend     : static
+  rdzv_endpoint    : 127.0.0.1:29510
+  rdzv_configs     : {'rank': 0, 'timeout': 900}
+  max_restarts     : 0
+  monitor_interval : 5
+  log_dir          : None
+  metrics_cfg      : {}
+
+INFO:torch.distributed.elastic.agent.server.local_elastic_agent:log directory set to: /scratch/torchelastic_z906xvay/none_bcjzww7o
+INFO:torch.distributed.elastic.agent.server.api:[default] starting workers for entrypoint: python
+INFO:torch.distributed.elastic.agent.server.api:[default] Rendezvous'ing worker group
+/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/distributed/elastic/utils/store.py:52: FutureWarning: This is an experimental API and will be changed in future.
+  warnings.warn(
+INFO:torch.distributed.elastic.agent.server.api:[default] Rendezvous complete for workers. Result:
+  restart_count=0
+  master_addr=127.0.0.1
+  master_port=29510
+  group_rank=0
+  group_world_size=1
+  local_ranks=[0, 1, 2, 3]
+  role_ranks=[0, 1, 2, 3]
+  global_ranks=[0, 1, 2, 3]
+  role_world_sizes=[4, 4, 4, 4]
+  global_world_sizes=[4, 4, 4, 4]
+
+INFO:torch.distributed.elastic.agent.server.api:[default] Starting worker group
+INFO:torch.distributed.elastic.multiprocessing:Setting worker0 reply file to: /scratch/torchelastic_z906xvay/none_bcjzww7o/attempt_0/0/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker1 reply file to: /scratch/torchelastic_z906xvay/none_bcjzww7o/attempt_0/1/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker2 reply file to: /scratch/torchelastic_z906xvay/none_bcjzww7o/attempt_0/2/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker3 reply file to: /scratch/torchelastic_z906xvay/none_bcjzww7o/attempt_0/3/error.json
+EVAL_TRAIN_SET =  False
+EVAL_TRAIN_SET =  False
+EVAL_TRAIN_SET =  False
+EVAL_TRAIN_SET =  False
+2022-12-21 23:44:17,311 - mmseg - INFO - Loaded 48735 images
+/home/fsun/ViT-Adapter/segmentation/mmseg_custom/models/losses/cross_entropy_loss.py:230: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+/home/fsun/ViT-Adapter/segmentation/mmseg_custom/models/losses/cross_entropy_loss.py:230: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+/home/fsun/ViT-Adapter/segmentation/mmseg_custom/models/losses/cross_entropy_loss.py:230: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+/home/fsun/ViT-Adapter/segmentation/mmseg_custom/models/losses/cross_entropy_loss.py:230: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+load checkpoint from local path: /home/fsun/ViT-Adapter/segmentation/work_dirs/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p_backup/latest.pth
+load checkpoint from local path: /home/fsun/ViT-Adapter/segmentation/work_dirs/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p_backup/latest.pth
+load checkpoint from local path: /home/fsun/ViT-Adapter/segmentation/work_dirs/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p_backup/latest.pth
+load checkpoint from local path: /home/fsun/ViT-Adapter/segmentation/work_dirs/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p_backup/latest.pth
+[                                                  ] 0/48735, elapsed: 0s, ETA:data:  {'img_metas': [DataContainer([[{'filename': '/project/fsun/data/scannet_images/images/validation/scene0011_00-1022.png', 'ori_filename': 'scene0011_00-1022.png', 'ori_shape': (480, 640, 3), 'img_shape': (480, 640, 3), 'pad_shape': (480, 640, 3), 'scale_factor': array([1., 1., 1., 1.], dtype=float32), 'flip': False, 'flip_direction': 'horizontal', 'img_norm_cfg': {'mean': array([123.675, 116.28 , 103.53 ], dtype=float32), 'std': array([58.395, 57.12 , 57.375], dtype=float32), 'to_rgb': True}}]]), DataContainer([[{'filename': '/project/fsun/data/scannet_images/images/validation/scene0011_00-1022.png', 'ori_filename': 'scene0011_00-1022.png', 'ori_shape': (480, 640, 3), 'img_shape': (480, 640, 3), 'pad_shape': (480, 640, 3), 'scale_factor': array([1., 1., 1., 1.], dtype=float32), 'flip': True, 'flip_direction': 'horizontal', 'img_norm_cfg': {'mean': array([123.675, 116.28 , 103.53 ], dtype=float32), 'std': array([58.395, 57.12 , 57.375], dtype=float32), 'to_rgb': True}}]])], 'img': [tensor([[[[-2.1008, -2.1008, -2.1179,  ..., -2.1179, -2.1179, -2.1179],
+          [-2.0837, -1.9980, -1.1247,  ..., -1.9295, -2.0837, -2.1179],
+          [-2.1008, -1.9295, -0.0287,  ..., -1.7583, -2.0494, -2.1008],
+          ...,
+          [-2.1008, -2.1179, -1.9809,  ..., -1.3130, -2.1179, -2.0665],
+          [-2.1008, -2.1179, -2.1008,  ..., -1.6384, -2.0665, -2.0494],
+          [-2.1179, -2.1008, -2.0837,  ..., -2.0152, -2.0494, -2.0837]],
+
+         [[-1.9482, -1.9832, -2.0357,  ..., -2.0357, -2.0357, -2.0357],
+          [-1.9657, -1.8782, -1.0553,  ..., -1.8606, -2.0182, -2.0357],
+          [-2.0357, -1.8782,  0.0126,  ..., -1.6681, -1.9657, -2.0182],
+          ...,
+          [-2.0182, -2.0357, -1.8957,  ..., -1.4405, -2.0357, -1.9482],
+          [-2.0182, -2.0357, -2.0182,  ..., -1.7206, -2.0182, -1.9657],
+          [-2.0357, -2.0182, -2.0007,  ..., -2.0182, -2.0007, -2.0007]],
+
+         [[-1.6476, -1.7173, -1.8044,  ..., -1.7696, -1.7347, -1.7173],
+          [-1.6999, -1.6302, -0.8284,  ..., -1.5953, -1.7173, -1.7347],
+          [-1.7870, -1.6476,  0.1651,  ..., -1.4036, -1.6824, -1.7696],
+          ...,
+          [-1.7870, -1.8044, -1.6650,  ..., -1.2293, -1.8044, -1.6999],
+          [-1.7870, -1.8044, -1.7870,  ..., -1.4733, -1.7522, -1.6476],
+          [-1.8044, -1.7870, -1.7696,  ..., -1.7522, -1.6824, -1.6650]]]]), tensor([[[[-2.1179, -2.1179, -2.1179,  ..., -2.1179, -2.1008, -2.1008],
+          [-2.1179, -2.0837, -1.9295,  ..., -1.1247, -1.9980, -2.0837],
+          [-2.1008, -2.0494, -1.7583,  ..., -0.0287, -1.9295, -2.1008],
+          ...,
+          [-2.0665, -2.1179, -1.3130,  ..., -1.9809, -2.1179, -2.1008],
+          [-2.0494, -2.0665, -1.6384,  ..., -2.1008, -2.1179, -2.1008],
+          [-2.0837, -2.0494, -2.0152,  ..., -2.0837, -2.1008, -2.1179]],
+
+         [[-2.0357, -2.0357, -2.0357,  ..., -2.0357, -1.9832, -1.9482],
+          [-2.0357, -2.0182, -1.8606,  ..., -1.0553, -1.8782, -1.9657],
+          [-2.0182, -1.9657, -1.6681,  ...,  0.0126, -1.8782, -2.0357],
+          ...,
+          [-1.9482, -2.0357, -1.4405,  ..., -1.8957, -2.0357, -2.0182],
+          [-1.9657, -2.0182, -1.7206,  ..., -2.0182, -2.0357, -2.0182],
+          [-2.0007, -2.0007, -2.0182,  ..., -2.0007, -2.0182, -2.0357]],
+
+         [[-1.7173, -1.7347, -1.7696,  ..., -1.8044, -1.7173, -1.6476],
+          [-1.7347, -1.7173, -1.5953,  ..., -0.8284, -1.6302, -1.6999],
+          [-1.7696, -1.6824, -1.4036,  ...,  0.1651, -1.6476, -1.7870],
+          ...,
+          [-1.6999, -1.8044, -1.2293,  ..., -1.6650, -1.8044, -1.7870],
+          [-1.6476, -1.7522, -1.4733,  ..., -1.7870, -1.8044, -1.7870],
+          [-1.6650, -1.6824, -1.7522,  ..., -1.7696, -1.7870, -1.8044]]]])]}
+data['img'][0].shape:  torch.Size([1, 3, 480, 640])
+data:  {'img_metas': [DataContainer([[{'filename': '/project/fsun/data/scannet_images/images/validation/scene0011_00-0.png', 'ori_filename': 'scene0011_00-0.png', 'ori_shape': (480, 640, 3), 'img_shape': (480, 640, 3), 'pad_shape': (480, 640, 3), 'scale_factor': array([1., 1., 1., 1.], dtype=float32), 'flip': False, 'flip_direction': 'horizontal', 'img_norm_cfg': {'mean': array([123.675, 116.28 , 103.53 ], dtype=float32), 'std': array([58.395, 57.12 , 57.375], dtype=float32), 'to_rgb': True}}]]), DataContainer([[{'filename': '/project/fsun/data/scannet_images/images/validation/scene0011_00-0.png', 'ori_filename': 'scene0011_00-0.png', 'ori_shape': (480, 640, 3), 'img_shape': (480, 640, 3), 'pad_shape': (480, 640, 3), 'scale_factor': array([1., 1., 1., 1.], dtype=float32), 'flip': True, 'flip_direction': 'horizontal', 'img_norm_cfg': {'mean': array([123.675, 116.28 , 103.53 ], dtype=float32), 'std': array([58.395, 57.12 , 57.375], dtype=float32), 'to_rgb': True}}]])], 'img': [tensor([[[[-2.0837, -2.0837, -2.1179,  ..., -2.1179, -2.0665, -2.0837],
+          [-2.0837, -1.8953,  0.0569,  ..., -1.0048, -1.9638, -2.1008],
+          [-2.1179, -1.6898,  2.2489,  ...,  0.2453, -1.9124, -2.1179],
+          ...,
+          [-1.9638, -2.1179,  0.1083,  ..., -1.3473, -2.1179, -2.0494],
+          [-2.0665, -2.0665, -1.8782,  ..., -1.7412, -2.1008, -2.0494],
+          [-2.0837, -2.0494, -2.1179,  ..., -2.1179, -2.0665, -2.0837]],
+
+         [[-1.9482, -1.9307, -2.0357,  ..., -2.0357, -1.9657, -1.9657],
+          [-1.9482, -1.7556,  0.1352,  ..., -0.9153, -1.8431, -1.9832],
+          [-2.0357, -1.6331,  2.4286,  ...,  0.3102, -1.8431, -2.0357],
+          ...,
+          [-1.8782, -2.0357,  0.2402,  ..., -1.2304, -2.0357, -1.9482],
+          [-1.9832, -1.9832, -1.7906,  ..., -1.6331, -2.0007, -1.9482],
+          [-2.0007, -1.9657, -2.0357,  ..., -2.0357, -1.9832, -2.0007]],
+
+         [[-1.7696, -1.7870, -1.8044,  ..., -1.8044, -1.6650, -1.6127],
+          [-1.7696, -1.5953,  0.2871,  ..., -0.8110, -1.6302, -1.7173],
+          [-1.7870, -1.4036,  2.5877,  ...,  0.3045, -1.6302, -1.8044],
+          ...,
+          [-1.6476, -1.8044,  0.4614,  ..., -1.0724, -1.8044, -1.7696],
+          [-1.7522, -1.7522, -1.5604,  ..., -1.4733, -1.8044, -1.7696],
+          [-1.7696, -1.7347, -1.8044,  ..., -1.8044, -1.7696, -1.7870]]]]), tensor([[[[-2.0837, -2.0665, -2.1179,  ..., -2.1179, -2.0837, -2.0837],
+          [-2.1008, -1.9638, -1.0048,  ...,  0.0569, -1.8953, -2.0837],
+          [-2.1179, -1.9124,  0.2453,  ...,  2.2489, -1.6898, -2.1179],
+          ...,
+          [-2.0494, -2.1179, -1.3473,  ...,  0.1083, -2.1179, -1.9638],
+          [-2.0494, -2.1008, -1.7412,  ..., -1.8782, -2.0665, -2.0665],
+          [-2.0837, -2.0665, -2.1179,  ..., -2.1179, -2.0494, -2.0837]],
+
+         [[-1.9657, -1.9657, -2.0357,  ..., -2.0357, -1.9307, -1.9482],
+          [-1.9832, -1.8431, -0.9153,  ...,  0.1352, -1.7556, -1.9482],
+          [-2.0357, -1.8431,  0.3102,  ...,  2.4286, -1.6331, -2.0357],
+          ...,
+          [-1.9482, -2.0357, -1.2304,  ...,  0.2402, -2.0357, -1.8782],
+          [-1.9482, -2.0007, -1.6331,  ..., -1.7906, -1.9832, -1.9832],
+          [-2.0007, -1.9832, -2.0357,  ..., -2.0357, -1.9657, -2.0007]],
+
+         [[-1.6127, -1.6650, -1.8044,  ..., -1.8044, -1.7870, -1.7696],
+          [-1.7173, -1.6302, -0.8110,  ...,  0.2871, -1.5953, -1.7696],
+          [-1.8044, -1.6302,  0.3045,  ...,  2.5877, -1.4036, -1.7870],
+          ...,
+          [-1.7696, -1.8044, -1.0724,  ...,  0.4614, -1.8044, -1.6476],
+          [-1.7696, -1.8044, -1.4733,  ..., -1.5604, -1.7522, -1.7522],
+          [-1.7870, -1.7696, -1.8044,  ..., -1.8044, -1.7347, -1.7696]]]])]}
+data['img'][0].shape:  torch.Size([1, 3, 480, 640])
+data:  {'img_metas': [DataContainer([[{'filename': '/project/fsun/data/scannet_images/images/validation/scene0011_00-1031.png', 'ori_filename': 'scene0011_00-1031.png', 'ori_shape': (480, 640, 3), 'img_shape': (480, 640, 3), 'pad_shape': (480, 640, 3), 'scale_factor': array([1., 1., 1., 1.], dtype=float32), 'flip': False, 'flip_direction': 'horizontal', 'img_norm_cfg': {'mean': array([123.675, 116.28 , 103.53 ], dtype=float32), 'std': array([58.395, 57.12 , 57.375], dtype=float32), 'to_rgb': True}}]]), DataContainer([[{'filename': '/project/fsun/data/scannet_images/images/validation/scene0011_00-1031.png', 'ori_filename': 'scene0011_00-1031.png', 'ori_shape': (480, 640, 3), 'img_shape': (480, 640, 3), 'pad_shape': (480, 640, 3), 'scale_factor': array([1., 1., 1., 1.], dtype=float32), 'flip': True, 'flip_direction': 'horizontal', 'img_norm_cfg': {'mean': array([123.675, 116.28 , 103.53 ], dtype=float32), 'std': array([58.395, 57.12 , 57.375], dtype=float32), 'to_rgb': True}}]])], 'img': [tensor([[[[-2.0665, -1.9980, -2.1179,  ..., -2.0837, -2.1008, -2.1008],
+          [-2.0494, -1.9124, -0.8678,  ..., -1.9980, -2.0837, -2.1008],
+          [-2.1179, -1.8782,  0.5193,  ..., -1.9467, -2.0665, -2.1008],
+          ...,
+          [-2.1179, -2.1179, -1.9638,  ..., -1.4158, -2.1008, -2.0323],
+          [-2.0665, -2.1179, -2.0837,  ..., -1.7412, -2.1008, -2.0665],
+          [-2.0837, -2.1179, -2.1008,  ..., -2.0665, -2.0837, -2.1179]],
+
+         [[-2.0007, -1.9832, -2.0357,  ..., -2.0182, -2.0357, -2.0357],
+          [-1.9832, -1.8957, -0.8452,  ..., -1.9307, -2.0182, -2.0357],
+          [-2.0357, -1.8256,  0.5728,  ..., -1.8782, -2.0007, -2.0357],
+          ...,
+          [-2.0357, -2.0357, -1.8782,  ..., -1.5630, -2.0357, -1.9307],
+          [-1.9832, -2.0357, -2.0007,  ..., -1.7906, -2.0182, -1.9307],
+          [-2.0007, -2.0357, -2.0182,  ..., -2.0182, -1.9657, -1.9832]],
+
+         [[-1.7522, -1.7347, -1.8044,  ..., -1.8044, -1.8044, -1.8044],
+          [-1.7522, -1.6824, -0.6541,  ..., -1.7347, -1.8044, -1.8044],
+          [-1.8044, -1.6127,  0.6879,  ..., -1.6824, -1.7870, -1.8044],
+          ...,
+          [-1.8044, -1.8044, -1.6476,  ..., -1.3861, -1.8044, -1.6476],
+          [-1.7522, -1.8044, -1.7696,  ..., -1.5953, -1.7870, -1.7347],
+          [-1.7696, -1.8044, -1.7870,  ..., -1.8044, -1.7696, -1.7870]]]]), tensor([[[[-2.1008, -2.1008, -2.0837,  ..., -2.1179, -1.9980, -2.0665],
+          [-2.1008, -2.0837, -1.9980,  ..., -0.8678, -1.9124, -2.0494],
+          [-2.1008, -2.0665, -1.9467,  ...,  0.5193, -1.8782, -2.1179],
+          ...,
+          [-2.0323, -2.1008, -1.4158,  ..., -1.9638, -2.1179, -2.1179],
+          [-2.0665, -2.1008, -1.7412,  ..., -2.0837, -2.1179, -2.0665],
+          [-2.1179, -2.0837, -2.0665,  ..., -2.1008, -2.1179, -2.0837]],
+
+         [[-2.0357, -2.0357, -2.0182,  ..., -2.0357, -1.9832, -2.0007],
+          [-2.0357, -2.0182, -1.9307,  ..., -0.8452, -1.8957, -1.9832],
+          [-2.0357, -2.0007, -1.8782,  ...,  0.5728, -1.8256, -2.0357],
+          ...,
+          [-1.9307, -2.0357, -1.5630,  ..., -1.8782, -2.0357, -2.0357],
+          [-1.9307, -2.0182, -1.7906,  ..., -2.0007, -2.0357, -1.9832],
+          [-1.9832, -1.9657, -2.0182,  ..., -2.0182, -2.0357, -2.0007]],
+
+         [[-1.8044, -1.8044, -1.8044,  ..., -1.8044, -1.7347, -1.7522],
+          [-1.8044, -1.8044, -1.7347,  ..., -0.6541, -1.6824, -1.7522],
+          [-1.8044, -1.7870, -1.6824,  ...,  0.6879, -1.6127, -1.8044],
+          ...,
+          [-1.6476, -1.8044, -1.3861,  ..., -1.6476, -1.8044, -1.8044],
+          [-1.7347, -1.7870, -1.5953,  ..., -1.7696, -1.8044, -1.7522],
+          [-1.7870, -1.7696, -1.8044,  ..., -1.7870, -1.8044, -1.7696]]]])]}
+data['img'][0].shape:  torch.Size([1, 3, 480, 640])
+data:  {'img_metas': [DataContainer([[{'filename': '/project/fsun/data/scannet_images/images/validation/scene0011_00-1004.png', 'ori_filename': 'scene0011_00-1004.png', 'ori_shape': (480, 640, 3), 'img_shape': (480, 640, 3), 'pad_shape': (480, 640, 3), 'scale_factor': array([1., 1., 1., 1.], dtype=float32), 'flip': False, 'flip_direction': 'horizontal', 'img_norm_cfg': {'mean': array([123.675, 116.28 , 103.53 ], dtype=float32), 'std': array([58.395, 57.12 , 57.375], dtype=float32), 'to_rgb': True}}]]), DataContainer([[{'filename': '/project/fsun/data/scannet_images/images/validation/scene0011_00-1004.png', 'ori_filename': 'scene0011_00-1004.png', 'ori_shape': (480, 640, 3), 'img_shape': (480, 640, 3), 'pad_shape': (480, 640, 3), 'scale_factor': array([1., 1., 1., 1.], dtype=float32), 'flip': True, 'flip_direction': 'horizontal', 'img_norm_cfg': {'mean': array([123.675, 116.28 , 103.53 ], dtype=float32), 'std': array([58.395, 57.12 , 57.375], dtype=float32), 'to_rgb': True}}]])], 'img': [tensor([[[[-2.0665, -2.0494, -2.1179,  ..., -2.1179, -2.1179, -2.1008],
+          [-2.0837, -1.8953, -0.9020,  ..., -1.2788, -2.0323, -2.0665],
+          [-2.0837, -1.8439,  0.3652,  ..., -0.3369, -1.9638, -2.0837],
+          ...,
+          [-2.0665, -2.1179, -1.3987,  ..., -1.4158, -2.1008, -1.9980],
+          [-2.0665, -2.1008, -1.9809,  ..., -1.7412, -2.0665, -2.0494],
+          [-2.1008, -2.0837, -2.0837,  ..., -2.1008, -2.0494, -2.0323]],
+
+         [[-2.0007, -2.0007, -2.0357,  ..., -2.0357, -1.9832, -2.0007],
+          [-2.0182, -1.8782, -0.8978,  ..., -1.1604, -1.9307, -1.9832],
+          [-2.0357, -1.8606,  0.3452,  ..., -0.2325, -1.8957, -2.0182],
+          ...,
+          [-2.0007, -2.0357, -1.3704,  ..., -1.3880, -2.0357, -1.9832],
+          [-1.9832, -2.0182, -1.9307,  ..., -1.7206, -2.0357, -2.0007],
+          [-2.0182, -2.0007, -2.0182,  ..., -2.0357, -2.0007, -1.9657]],
+
+         [[-1.6824, -1.7347, -1.8044,  ..., -1.8044, -1.6650, -1.6127],
+          [-1.7522, -1.6476, -0.7064,  ..., -0.9504, -1.6302, -1.6650],
+          [-1.8044, -1.6476,  0.4614,  ..., -0.0790, -1.6650, -1.7347],
+          ...,
+          [-1.7870, -1.8044, -1.1596,  ..., -1.1944, -1.8044, -1.7522],
+          [-1.7696, -1.8044, -1.6999,  ..., -1.5081, -1.8044, -1.7696],
+          [-1.7870, -1.7696, -1.7870,  ..., -1.8044, -1.7522, -1.7347]]]]), tensor([[[[-2.1008, -2.1179, -2.1179,  ..., -2.1179, -2.0494, -2.0665],
+          [-2.0665, -2.0323, -1.2788,  ..., -0.9020, -1.8953, -2.0837],
+          [-2.0837, -1.9638, -0.3369,  ...,  0.3652, -1.8439, -2.0837],
+          ...,
+          [-1.9980, -2.1008, -1.4158,  ..., -1.3987, -2.1179, -2.0665],
+          [-2.0494, -2.0665, -1.7412,  ..., -1.9809, -2.1008, -2.0665],
+          [-2.0323, -2.0494, -2.1008,  ..., -2.0837, -2.0837, -2.1008]],
+
+         [[-2.0007, -1.9832, -2.0357,  ..., -2.0357, -2.0007, -2.0007],
+          [-1.9832, -1.9307, -1.1604,  ..., -0.8978, -1.8782, -2.0182],
+          [-2.0182, -1.8957, -0.2325,  ...,  0.3452, -1.8606, -2.0357],
+          ...,
+          [-1.9832, -2.0357, -1.3880,  ..., -1.3704, -2.0357, -2.0007],
+          [-2.0007, -2.0357, -1.7206,  ..., -1.9307, -2.0182, -1.9832],
+          [-1.9657, -2.0007, -2.0357,  ..., -2.0182, -2.0007, -2.0182]],
+
+         [[-1.6127, -1.6650, -1.8044,  ..., -1.8044, -1.7347, -1.6824],
+          [-1.6650, -1.6302, -0.9504,  ..., -0.7064, -1.6476, -1.7522],
+          [-1.7347, -1.6650, -0.0790,  ...,  0.4614, -1.6476, -1.8044],
+          ...,
+          [-1.7522, -1.8044, -1.1944,  ..., -1.1596, -1.8044, -1.7870],
+          [-1.7696, -1.8044, -1.5081,  ..., -1.6999, -1.8044, -1.7696],
+          [-1.7347, -1.7522, -1.8044,  ..., -1.7870, -1.7696, -1.7870]]]])]}
+data['img'][0].shape:  torch.Size([1, 3, 480, 640])
+/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448278899/work/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448278899/work/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448278899/work/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448278899/work/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/functional.py:3657: UserWarning: The default behavior for interpolate/upsample with float scale_factor changed in 1.6.0 to align with other frameworks/libraries, and now uses scale_factor directly, instead of relying on the computed output size. If you wish to restore the old behavior, please set recompute_scale_factor=True. See the documentation of nn.Upsample for details. 
+  warnings.warn(
+/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/functional.py:3657: UserWarning: The default behavior for interpolate/upsample with float scale_factor changed in 1.6.0 to align with other frameworks/libraries, and now uses scale_factor directly, instead of relying on the computed output size. If you wish to restore the old behavior, please set recompute_scale_factor=True. See the documentation of nn.Upsample for details. 
+  warnings.warn(
+/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/functional.py:3657: UserWarning: The default behavior for interpolate/upsample with float scale_factor changed in 1.6.0 to align with other frameworks/libraries, and now uses scale_factor directly, instead of relying on the computed output size. If you wish to restore the old behavior, please set recompute_scale_factor=True. See the documentation of nn.Upsample for details. 
+  warnings.warn(
+/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/_tensor.py:575: UserWarning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
+To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448278899/work/aten/src/ATen/native/BinaryOps.cpp:467.)
+  return torch.floor_divide(self, other)
+/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/_tensor.py:575: UserWarning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
+To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448278899/work/aten/src/ATen/native/BinaryOps.cpp:467.)
+  return torch.floor_divide(self, other)
+/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/_tensor.py:575: UserWarning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
+To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448278899/work/aten/src/ATen/native/BinaryOps.cpp:467.)
+  return torch.floor_divide(self, other)
+/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/functional.py:3657: UserWarning: The default behavior for interpolate/upsample with float scale_factor changed in 1.6.0 to align with other frameworks/libraries, and now uses scale_factor directly, instead of relying on the computed output size. If you wish to restore the old behavior, please set recompute_scale_factor=True. See the documentation of nn.Upsample for details. 
+  warnings.warn(
+/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/_tensor.py:575: UserWarning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
+To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448278899/work/aten/src/ATen/native/BinaryOps.cpp:467.)
+  return torch.floor_divide(self, other)
+result:  [array([[ 0,  0,  0, ..., 10, 10, 10],
+       [ 0,  0,  0, ..., 10, 10, 10],
+       [ 0,  0,  0, ..., 10, 10, 10],
+       ...,
+       [19, 19, 19, ...,  4,  4,  4],
+       [19, 19, 19, ...,  4,  4,  4],
+       [19, 19, 19, ...,  4,  4,  4]])]
+np.unique(result[0]):  [ 0  1  2  4  6  8 10 11 14 19]
+result[0].shape:  (480, 640)
+scene_id, img_save_name:  scene0011_00 1031.png
+result:  [array([[ 0,  0,  0, ..., 10, 10, 10],
+       [ 0,  0,  0, ..., 10, 10, 10],
+       [ 0,  0,  0, ..., 10, 10, 10],
+       ...,
+       [ 2,  2,  2, ...,  4,  4,  4],
+       [ 2,  2,  2, ...,  4,  4,  4],
+       [ 2,  2,  2, ...,  4,  4,  4]])]
+result:  [array([[8, 8, 8, ..., 6, 6, 6],
+       [8, 8, 8, ..., 6, 6, 6],
+       [8, 8, 8, ..., 6, 6, 6],
+       ...,
+       [1, 1, 1, ..., 1, 1, 1],
+       [1, 1, 1, ..., 1, 1, 1],
+       [1, 1, 1, ..., 1, 1, 1]])]
+np.unique(result[0]):  [ 0  1  2  4  5  6  8 10 11 14]
+result[0].shape:  (480, 640)
+scene_id, img_save_name:  scene0011_00 1022.png
+np.unique(result[0]):  [ 0  1  2  4  6  8 11 14 17]
+result[0].shape:  (480, 640)
+scene_id, img_save_name:  scene0011_00 0.png
+result:  [array([[ 0,  0,  0, ...,  0,  0,  0],
+       [ 0,  0,  0, ...,  0,  0,  0],
+       [ 0,  0,  0, ...,  0,  0,  0],
+       ...,
+       [11, 11, 11, ...,  1,  1,  1],
+       [11, 11, 11, ...,  1,  1,  1],
+       [11, 11, 11, ...,  1,  1,  1]])]
+np.unique(result[0]):  [ 0  1  2  5  8 11 14 19]
+result[0].shape:  (480, 640)
+scene_id, img_save_name:  scene0011_00 1004.png
+Counter system remove pls
+[                            ] 1/48735, 0.0 task/s, elapsed: 24s, ETA: 1172349s[                             ] 2/48735, 0.1 task/s, elapsed: 24s, ETA: 586165s[                             ] 3/48735, 0.1 task/s, elapsed: 24s, ETA: 390769s[                             ] 4/48735, 0.2 task/s, elapsed: 24s, ETA: 293071sCounter system remove pls
+Counter system remove pls
+Counter system remove pls
+per class results:
+
++----------------+-------+-------+
+|     Class      |  IoU  |  Acc  |
++----------------+-------+-------+
+|    ignored     | 86.61 | 91.87 |
+|      wall      | 87.45 | 88.41 |
+|     floor      | 86.32 | 89.42 |
+|    cabinet     |  nan  |  nan  |
+|      bed       | 63.69 |  80.1 |
+|     chair      |  0.0  |  nan  |
+|      sofa      | 58.48 | 85.25 |
+|     table      |  nan  |  nan  |
+|      door      |  76.4 | 95.73 |
+|     window     |  nan  |  nan  |
+|   bookshelf    |  0.0  |  nan  |
+|    picture     | 79.52 | 90.37 |
+|    counter     |  nan  |  nan  |
+|      desk      |  nan  |  nan  |
+|    curtain     |  76.2 | 88.31 |
+|  refrigerator  |  nan  |  nan  |
+| shower curtain |  nan  |  nan  |
+|     toilet     |  3.78 |  6.0  |
+|      sink      |  nan  |  nan  |
+|    bathtub     |  0.0  |  nan  |
+| otherfurniture |  nan  |  nan  |
++----------------+-------+-------+
+Summary:
+
++------+-------+------+
+| aAcc |  mIoU | mAcc |
++------+-------+------+
+| 88.2 | 51.54 | 79.5 |
++------+-------+------+
+INFO:torch.distributed.elastic.agent.server.api:[default] worker group successfully finished. Waiting 300 seconds for other agents to finish.
+INFO:torch.distributed.elastic.agent.server.api:Local worker group finished (SUCCEEDED). Waiting 300 seconds for other agents to finish
+/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/distributed/elastic/utils/store.py:70: FutureWarning: This is an experimental API and will be changed in future.
+  warnings.warn(
+INFO:torch.distributed.elastic.agent.server.api:Done waiting for other agents. Elapsed: 0.0006148815155029297 seconds
+{"name": "torchelastic.worker.status.SUCCEEDED", "source": "WORKER", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": 0, "group_rank": 0, "worker_id": "16118", "role": "default", "hostname": "r33n6.lisa.surfsara.nl", "state": "SUCCEEDED", "total_run_time": 60, "rdzv_backend": "static", "raw_error": null, "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\", \"local_rank\": [0], \"role_rank\": [0], \"role_world_size\": [4]}", "agent_restarts": 0}}
+{"name": "torchelastic.worker.status.SUCCEEDED", "source": "WORKER", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": 1, "group_rank": 0, "worker_id": "16119", "role": "default", "hostname": "r33n6.lisa.surfsara.nl", "state": "SUCCEEDED", "total_run_time": 60, "rdzv_backend": "static", "raw_error": null, "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\", \"local_rank\": [1], \"role_rank\": [1], \"role_world_size\": [4]}", "agent_restarts": 0}}
+{"name": "torchelastic.worker.status.SUCCEEDED", "source": "WORKER", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": 2, "group_rank": 0, "worker_id": "16120", "role": "default", "hostname": "r33n6.lisa.surfsara.nl", "state": "SUCCEEDED", "total_run_time": 60, "rdzv_backend": "static", "raw_error": null, "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\", \"local_rank\": [2], \"role_rank\": [2], \"role_world_size\": [4]}", "agent_restarts": 0}}
+{"name": "torchelastic.worker.status.SUCCEEDED", "source": "WORKER", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": 3, "group_rank": 0, "worker_id": "16121", "role": "default", "hostname": "r33n6.lisa.surfsara.nl", "state": "SUCCEEDED", "total_run_time": 60, "rdzv_backend": "static", "raw_error": null, "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\", \"local_rank\": [3], \"role_rank\": [3], \"role_world_size\": [4]}", "agent_restarts": 0}}
+{"name": "torchelastic.worker.status.SUCCEEDED", "source": "AGENT", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": null, "group_rank": 0, "worker_id": null, "role": "default", "hostname": "r33n6.lisa.surfsara.nl", "state": "SUCCEEDED", "total_run_time": 60, "rdzv_backend": "static", "raw_error": null, "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\"}", "agent_restarts": 0}}
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#SBATCH --partition=gpu_titanrtx_shared
+#SBATCH --job-name=ViT
+#SBATCH --gpus=4
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=24
+#SBATCH --time=30:00:00
+#SBATCH --mem=190000MB
+#SBATCH --output=job_logs/train_480p_final.out
+
+
+#module purge
+#source activate oneformer
+
+
+sh dist_train.sh configs/scannet/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p.py 4

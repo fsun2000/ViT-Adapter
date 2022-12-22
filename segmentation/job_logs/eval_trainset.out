@@ -1,0 +1,477 @@
+/var/spool/slurm/slurmd/job10576589/slurm_script: line 14: activate: No such file or directory
+/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/distributed/launch.py:163: DeprecationWarning: The 'warn' method is deprecated, use 'warning' instead
+  logger.warn(
+The module torch.distributed.launch is deprecated and going to be removed in future.Migrate to torch.distributed.run
+WARNING:torch.distributed.run:--use_env is deprecated and will be removed in future releases.
+ Please read local_rank from `os.environ('LOCAL_RANK')` instead.
+INFO:torch.distributed.launcher.api:Starting elastic_operator with launch configs:
+  entrypoint       : ./test.py
+  min_nodes        : 1
+  max_nodes        : 1
+  nproc_per_node   : 4
+  run_id           : none
+  rdzv_backend     : static
+  rdzv_endpoint    : 127.0.0.1:29510
+  rdzv_configs     : {'rank': 0, 'timeout': 900}
+  max_restarts     : 0
+  monitor_interval : 5
+  log_dir          : None
+  metrics_cfg      : {}
+
+INFO:torch.distributed.elastic.agent.server.local_elastic_agent:log directory set to: /scratch/torchelastic_t5lx6uqj/none_mn7hjc23
+INFO:torch.distributed.elastic.agent.server.api:[default] starting workers for entrypoint: python
+INFO:torch.distributed.elastic.agent.server.api:[default] Rendezvous'ing worker group
+/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/distributed/elastic/utils/store.py:52: FutureWarning: This is an experimental API and will be changed in future.
+  warnings.warn(
+INFO:torch.distributed.elastic.agent.server.api:[default] Rendezvous complete for workers. Result:
+  restart_count=0
+  master_addr=127.0.0.1
+  master_port=29510
+  group_rank=0
+  group_world_size=1
+  local_ranks=[0, 1, 2, 3]
+  role_ranks=[0, 1, 2, 3]
+  global_ranks=[0, 1, 2, 3]
+  role_world_sizes=[4, 4, 4, 4]
+  global_world_sizes=[4, 4, 4, 4]
+
+INFO:torch.distributed.elastic.agent.server.api:[default] Starting worker group
+INFO:torch.distributed.elastic.multiprocessing:Setting worker0 reply file to: /scratch/torchelastic_t5lx6uqj/none_mn7hjc23/attempt_0/0/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker1 reply file to: /scratch/torchelastic_t5lx6uqj/none_mn7hjc23/attempt_0/1/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker2 reply file to: /scratch/torchelastic_t5lx6uqj/none_mn7hjc23/attempt_0/2/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker3 reply file to: /scratch/torchelastic_t5lx6uqj/none_mn7hjc23/attempt_0/3/error.json
+BUILDING TRAIN DATASET INSTEAD OF TESTBUILDING TRAIN DATASET INSTEAD OF TEST
+
+EVAL_TRAIN_SET = EVAL_TRAIN_SET =   TrueTrue
+
+BUILDING TRAIN DATASET INSTEAD OF TEST
+EVAL_TRAIN_SET =  True
+BUILDING TRAIN DATASET INSTEAD OF TEST
+EVAL_TRAIN_SET =  True
+2022-12-21 23:34:05,055 - mmseg - INFO - Loaded 179037 images
+/home/fsun/ViT-Adapter/segmentation/mmseg_custom/models/losses/cross_entropy_loss.py:230: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+/home/fsun/ViT-Adapter/segmentation/mmseg_custom/models/losses/cross_entropy_loss.py:230: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+/home/fsun/ViT-Adapter/segmentation/mmseg_custom/models/losses/cross_entropy_loss.py:230: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+/home/fsun/ViT-Adapter/segmentation/mmseg_custom/models/losses/cross_entropy_loss.py:230: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+load checkpoint from local path: /home/fsun/ViT-Adapter/segmentation/work_dirs/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p_backup/latest.pth
+load checkpoint from local path: /home/fsun/ViT-Adapter/segmentation/work_dirs/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p_backup/latest.pth
+load checkpoint from local path: /home/fsun/ViT-Adapter/segmentation/work_dirs/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p_backup/latest.pth
+load checkpoint from local path: /home/fsun/ViT-Adapter/segmentation/work_dirs/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p_backup/latest.pth
+[                                                  ] 0/179037, elapsed: 0s, ETA:data:  {'img_metas': DataContainer([[{'filename': '/project/fsun/data/scannet_images/images/training/scene0000_00-0.png', 'ori_filename': 'scene0000_00-0.png', 'ori_shape': (480, 640, 3), 'img_shape': (480, 480, 3), 'pad_shape': (480, 480, 3), 'scale_factor': array([1.3671875, 1.3666667, 1.3671875, 1.3666667], dtype=float32), 'flip': True, 'flip_direction': 'horizontal', 'img_norm_cfg': {'mean': array([123.675, 116.28 , 103.53 ], dtype=float32), 'std': array([58.395, 57.12 , 57.375], dtype=float32), 'to_rgb': True}}]]), 'img': DataContainer([tensor([[[[-0.4568, -0.4739, -0.4739,  ..., -0.5767, -0.5767, -0.5253],
+          [-0.4226, -0.4911, -0.5082,  ..., -0.5767, -0.6109, -0.6109],
+          [-0.4226, -0.4739, -0.5253,  ..., -0.6452, -0.6623, -0.6965],
+          ...,
+          [ 0.7248,  0.7077,  0.7077,  ..., -0.5424, -0.6794, -0.7650],
+          [ 0.7591,  0.7591,  0.7591,  ..., -0.2684, -0.3883, -0.4054],
+          [ 0.8104,  0.8104,  0.8276,  ..., -0.0629, -0.0972, -0.0801]],
+
+         [[-0.4776, -0.5126, -0.4776,  ..., -0.5826, -0.5826, -0.5301],
+          [-0.4601, -0.4776, -0.4251,  ..., -0.6352, -0.6176, -0.6001],
+          [-0.4251, -0.3725, -0.3025,  ..., -0.7227, -0.7052, -0.7052],
+          ...,
+          [ 0.6078,  0.5378,  0.4678,  ..., -0.6702, -0.8452, -0.8978],
+          [ 0.6254,  0.5728,  0.5203,  ..., -0.3725, -0.5126, -0.5126],
+          [ 0.6429,  0.6078,  0.5903,  ..., -0.1099, -0.1625, -0.1450]],
+
+         [[-0.6193, -0.6890, -0.7064,  ..., -0.7761, -0.7761, -0.7587],
+          [-0.6541, -0.7413, -0.7761,  ..., -0.7064, -0.7238, -0.7761],
+          [-0.6715, -0.7413, -0.7587,  ..., -0.6890, -0.7413, -0.8284],
+          ...,
+          [ 0.1651,  0.1825,  0.1476,  ..., -0.6541, -0.8110, -0.8981],
+          [ 0.2173,  0.2173,  0.1825,  ..., -0.4450, -0.5844, -0.6193],
+          [ 0.2522,  0.2522,  0.2348,  ..., -0.2532, -0.3055, -0.3055]]]])]), 'gt_semantic_seg': DataContainer([tensor([[[[0, 0, 0,  ..., 0, 0, 0],
+          [0, 0, 0,  ..., 0, 0, 0],
+          [0, 0, 0,  ..., 0, 0, 0],
+          ...,
+          [6, 6, 6,  ..., 1, 1, 1],
+          [6, 6, 6,  ..., 1, 1, 1],
+          [6, 6, 6,  ..., 1, 1, 1]]]])]), 'gt_masks': DataContainer([[tensor([[[1, 1, 1,  ..., 1, 1, 1],
+         [1, 1, 1,  ..., 1, 1, 1],
+         [1, 1, 1,  ..., 1, 1, 1],
+         ...,
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0]],
+
+        [[0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         ...,
+         [0, 0, 0,  ..., 1, 1, 1],
+         [0, 0, 0,  ..., 1, 1, 1],
+         [0, 0, 0,  ..., 1, 1, 1]],
+
+        [[0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         ...,
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0]],
+
+        [[0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         ...,
+         [1, 1, 1,  ..., 0, 0, 0],
+         [1, 1, 1,  ..., 0, 0, 0],
+         [1, 1, 1,  ..., 0, 0, 0]],
+
+        [[0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         ...,
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0]],
+
+        [[0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         ...,
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0]]])]]), 'gt_labels': DataContainer([[tensor([ 0,  1,  2,  6, 12, 13])]])}
+data['img'][0].shape:  torch.Size([1, 3, 480, 480])
+Traceback (most recent call last):
+  File "./test.py", line 448, in <module>
+    main()
+  File "./test.py", line 258, in main
+    results = multi_gpu_test(
+  File "./test.py", line 399, in multi_gpu_test
+    result = model(return_loss=False, rescale=True, **data)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 799, in forward
+    output = self.module(*inputs[0], **kwargs[0])
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/mmcv/runner/fp16_utils.py", line 98, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/mmseg/models/segmentors/base.py", line 110, in forward
+    return self.forward_test(img, img_metas, **kwargs)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/mmseg/models/segmentors/base.py", line 74, in forward_test
+    raise TypeError(f'{name} must be a list, but got '
+TypeError: imgs must be a list, but got <class 'torch.Tensor'>
+data:  {'img_metas': DataContainer([[{'filename': '/project/fsun/data/scannet_images/images/training/scene0000_00-1012.png', 'ori_filename': 'scene0000_00-1012.png', 'ori_shape': (480, 640, 3), 'img_shape': (480, 480, 3), 'pad_shape': (480, 480, 3), 'scale_factor': array([1.6640625, 1.6645833, 1.6640625, 1.6645833], dtype=float32), 'flip': True, 'flip_direction': 'horizontal', 'img_norm_cfg': {'mean': array([123.675, 116.28 , 103.53 ], dtype=float32), 'std': array([58.395, 57.12 , 57.375], dtype=float32), 'to_rgb': True}}]]), 'img': DataContainer([tensor([[[[-1.4500, -1.4329, -1.4672,  ...,  0.7419,  0.7248,  0.6906],
+          [-1.4672, -1.4158, -1.4329,  ...,  0.7419,  0.7248,  0.6906],
+          [-1.4500, -1.3987, -1.4158,  ...,  0.7248,  0.7248,  0.6906],
+          ...,
+          [-1.4843, -1.4500, -1.4500,  ..., -0.8164, -0.7650, -0.6794],
+          [-1.4500, -1.4158, -1.3987,  ..., -0.8164, -0.7822, -0.7137],
+          [-1.4158, -1.3987, -1.3644,  ..., -0.7993, -0.7822, -0.7479]],
+
+         [[-1.4230, -1.4055, -1.3880,  ...,  0.7654,  0.7654,  0.8004],
+          [-1.4580, -1.4405, -1.4055,  ...,  0.7654,  0.7654,  0.8004],
+          [-1.4755, -1.4230, -1.4230,  ...,  0.7654,  0.7654,  0.8004],
+          ...,
+          [-1.5455, -1.5105, -1.4755,  ..., -1.6681, -1.5980, -1.5105],
+          [-1.5105, -1.4405, -1.4405,  ..., -1.6331, -1.5980, -1.5455],
+          [-1.4580, -1.4055, -1.3880,  ..., -1.6331, -1.6155, -1.5805]],
+
+         [[-0.5321, -0.5147, -0.4973,  ...,  0.8622,  0.8448,  0.8622],
+          [-0.5495, -0.4973, -0.4798,  ...,  0.8622,  0.8622,  0.8797],
+          [-0.5147, -0.4624, -0.4275,  ...,  0.8971,  0.8971,  0.9145],
+          ...,
+          [-1.5779, -1.5256, -1.5256,  ..., -1.6302, -1.6127, -1.5256],
+          [-1.5779, -1.5430, -1.4907,  ..., -1.6302, -1.5953, -1.5430],
+          [-1.5604, -1.5256, -1.4907,  ..., -1.5953, -1.6302, -1.5953]]]])]), 'gt_semantic_seg': DataContainer([tensor([[[[  3,   3,   3,  ...,   0,   0,   0],
+          [  3,   3,   3,  ...,   0,   0,   0],
+          [  3,   3,   3,  ...,   0,   0,   0],
+          ...,
+          [  1,   1,   1,  ..., 255, 255, 255],
+          [  1,   1,   1,  ..., 255, 255, 255],
+          [  1,   1,   1,  ..., 255, 255, 255]]]])]), 'gt_masks': DataContainer([[tensor([[[0, 0, 0,  ..., 1, 1, 1],
+         [0, 0, 0,  ..., 1, 1, 1],
+         [0, 0, 0,  ..., 1, 1, 1],
+         ...,
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0]],
+
+        [[0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         ...,
+         [1, 1, 1,  ..., 0, 0, 0],
+         [1, 1, 1,  ..., 0, 0, 0],
+         [1, 1, 1,  ..., 0, 0, 0]],
+
+        [[1, 1, 1,  ..., 0, 0, 0],
+         [1, 1, 1,  ..., 0, 0, 0],
+         [1, 1, 1,  ..., 0, 0, 0],
+         ...,
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0]]])]]), 'gt_labels': DataContainer([[tensor([0, 1, 3])]])}
+data['img'][0].shape:  torch.Size([1, 3, 480, 480])
+Traceback (most recent call last):
+  File "./test.py", line 448, in <module>
+    main()
+  File "./test.py", line 258, in main
+    results = multi_gpu_test(
+  File "./test.py", line 399, in multi_gpu_test
+    result = model(return_loss=False, rescale=True, **data)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 799, in forward
+    output = self.module(*inputs[0], **kwargs[0])
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/mmcv/runner/fp16_utils.py", line 98, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/mmseg/models/segmentors/base.py", line 110, in forward
+    return self.forward_test(img, img_metas, **kwargs)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/mmseg/models/segmentors/base.py", line 74, in forward_test
+    raise TypeError(f'{name} must be a list, but got '
+TypeError: imgs must be a list, but got <class 'torch.Tensor'>
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+data:  {'img_metas': DataContainer([[{'filename': '/project/fsun/data/scannet_images/images/training/scene0000_00-1019.png', 'ori_filename': 'scene0000_00-1019.png', 'ori_shape': (480, 640, 3), 'img_shape': (341, 455, 3), 'pad_shape': (480, 480, 3), 'scale_factor': array([0.7109375, 0.7104167, 0.7109375, 0.7104167], dtype=float32), 'flip': False, 'flip_direction': 'horizontal', 'img_norm_cfg': {'mean': array([123.675, 116.28 , 103.53 ], dtype=float32), 'std': array([58.395, 57.12 , 57.375], dtype=float32), 'to_rgb': True}}]]), 'img': DataContainer([tensor([[[[-2.1179, -1.8610, -1.7412,  ...,  0.0000,  0.0000,  0.0000],
+          [-2.0665, -0.1828,  1.0502,  ...,  0.0000,  0.0000,  0.0000],
+          [-2.0494,  0.1083,  1.4954,  ...,  0.0000,  0.0000,  0.0000],
+          ...,
+          [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000],
+          [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000],
+          [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000]],
+
+         [[-2.0007, -1.7731, -1.6506,  ...,  0.0000,  0.0000,  0.0000],
+          [-1.9657, -0.0399,  1.2381,  ...,  0.0000,  0.0000,  0.0000],
+          [-1.9482,  0.3102,  1.7458,  ...,  0.0000,  0.0000,  0.0000],
+          ...,
+          [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000],
+          [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000],
+          [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000]],
+
+         [[-1.7173, -1.5081, -1.4036,  ...,  0.0000,  0.0000,  0.0000],
+          [-1.7173,  0.2696,  1.5420,  ...,  0.0000,  0.0000,  0.0000],
+          [-1.6824,  0.5834,  1.9951,  ...,  0.0000,  0.0000,  0.0000],
+          ...,
+          [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000],
+          [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000],
+          [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000]]]])]), 'gt_semantic_seg': DataContainer([tensor([[[[  0,   0,   0,  ..., 255, 255, 255],
+          [  0,   0,   0,  ..., 255, 255, 255],
+          [  0,   0,   0,  ..., 255, 255, 255],
+          ...,
+          [255, 255, 255,  ..., 255, 255, 255],
+          [255, 255, 255,  ..., 255, 255, 255],
+          [255, 255, 255,  ..., 255, 255, 255]]]])]), 'gt_masks': DataContainer([[tensor([[[1, 1, 1,  ..., 0, 0, 0],
+         [1, 1, 1,  ..., 0, 0, 0],
+         [1, 1, 1,  ..., 0, 0, 0],
+         ...,
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0]],
+
+        [[0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         ...,
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0]],
+
+        [[0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         ...,
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0]],
+
+        [[0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         ...,
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0]]])]]), 'gt_labels': DataContainer([[tensor([0, 1, 3, 7])]])}
+data['img'][0].shape:  torch.Size([1, 3, 480, 480])
+Traceback (most recent call last):
+  File "./test.py", line 448, in <module>
+    main()
+  File "./test.py", line 258, in main
+    results = multi_gpu_test(
+  File "./test.py", line 399, in multi_gpu_test
+    result = model(return_loss=False, rescale=True, **data)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 799, in forward
+    output = self.module(*inputs[0], **kwargs[0])
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/mmcv/runner/fp16_utils.py", line 98, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/mmseg/models/segmentors/base.py", line 110, in forward
+    return self.forward_test(img, img_metas, **kwargs)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/mmseg/models/segmentors/base.py", line 74, in forward_test
+    raise TypeError(f'{name} must be a list, but got '
+TypeError: imgs must be a list, but got <class 'torch.Tensor'>
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+data:  {'img_metas': DataContainer([[{'filename': '/project/fsun/data/scannet_images/images/training/scene0000_00-1004.png', 'ori_filename': 'scene0000_00-1004.png', 'ori_shape': (480, 640, 3), 'img_shape': (360, 480, 3), 'pad_shape': (480, 480, 3), 'scale_factor': array([0.75, 0.75, 0.75, 0.75], dtype=float32), 'flip': False, 'flip_direction': 'horizontal', 'img_norm_cfg': {'mean': array([123.675, 116.28 , 103.53 ], dtype=float32), 'std': array([58.395, 57.12 , 57.375], dtype=float32), 'to_rgb': True}}]]), 'img': DataContainer([tensor([[[[-2.1179, -2.1179, -1.9980,  ..., -2.1179, -2.1179, -2.1179],
+          [-2.1179, -0.8849,  0.3823,  ..., -2.1008, -2.1179, -2.1179],
+          [-2.1179, -0.5767,  1.0159,  ..., -2.1179, -2.1179, -2.1179],
+          ...,
+          [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000],
+          [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000],
+          [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000]],
+
+         [[-2.0357, -2.0357, -1.9132,  ..., -2.0357, -2.0357, -2.0357],
+          [-2.0357, -0.7752,  0.4853,  ..., -1.8256, -2.0007, -2.0357],
+          [-2.0357, -0.4601,  1.1155,  ..., -1.6506, -1.9132, -2.0357],
+          ...,
+          [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000],
+          [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000],
+          [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000]],
+
+         [[-1.8044, -1.7870, -1.6999,  ..., -1.8044, -1.8044, -1.8044],
+          [-1.8044, -0.5844,  0.6182,  ..., -1.5081, -1.6824, -1.8044],
+          [-1.8044, -0.3055,  1.1759,  ..., -1.3687, -1.6302, -1.8044],
+          ...,
+          [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000],
+          [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000],
+          [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000]]]])]), 'gt_semantic_seg': DataContainer([tensor([[[[255, 255, 255,  ..., 255, 255, 255],
+          [255, 255, 255,  ..., 255, 255, 255],
+          [255, 255, 255,  ..., 255, 255, 255],
+          ...,
+          [255, 255, 255,  ..., 255, 255, 255],
+          [255, 255, 255,  ..., 255, 255, 255],
+          [255, 255, 255,  ..., 255, 255, 255]]]])]), 'gt_masks': DataContainer([[tensor([[[0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         ...,
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0]],
+
+        [[0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         ...,
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0]],
+
+        [[0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         ...,
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0]]])]]), 'gt_labels': DataContainer([[tensor([0, 1, 3])]])}
+data['img'][0].shape:  torch.Size([1, 3, 480, 480])
+Traceback (most recent call last):
+  File "./test.py", line 448, in <module>
+    main()
+  File "./test.py", line 258, in main
+    results = multi_gpu_test(
+  File "./test.py", line 399, in multi_gpu_test
+    result = model(return_loss=False, rescale=True, **data)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 799, in forward
+    output = self.module(*inputs[0], **kwargs[0])
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/mmcv/runner/fp16_utils.py", line 98, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/mmseg/models/segmentors/base.py", line 110, in forward
+    return self.forward_test(img, img_metas, **kwargs)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/mmseg/models/segmentors/base.py", line 74, in forward_test
+    raise TypeError(f'{name} must be a list, but got '
+TypeError: imgs must be a list, but got <class 'torch.Tensor'>
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 12604) of binary: /home/fsun/.conda/envs/oneformer/bin/python
+ERROR:torch.distributed.elastic.agent.server.local_elastic_agent:[default] Worker group failed
+INFO:torch.distributed.elastic.agent.server.api:Local worker group finished (FAILED). Waiting 300 seconds for other agents to finish
+/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/distributed/elastic/utils/store.py:70: FutureWarning: This is an experimental API and will be changed in future.
+  warnings.warn(
+INFO:torch.distributed.elastic.agent.server.api:Done waiting for other agents. Elapsed: 0.0006346702575683594 seconds
+{"name": "torchelastic.worker.status.FAILED", "source": "WORKER", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": 0, "group_rank": 0, "worker_id": "12604", "role": "default", "hostname": "r33n6.lisa.surfsara.nl", "state": "FAILED", "total_run_time": 90, "rdzv_backend": "static", "raw_error": "{\"message\": \"<NONE>\"}", "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\", \"local_rank\": [0], \"role_rank\": [0], \"role_world_size\": [4]}", "agent_restarts": 0}}
+{"name": "torchelastic.worker.status.FAILED", "source": "WORKER", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": 1, "group_rank": 0, "worker_id": "12605", "role": "default", "hostname": "r33n6.lisa.surfsara.nl", "state": "FAILED", "total_run_time": 90, "rdzv_backend": "static", "raw_error": "{\"message\": \"<NONE>\"}", "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\", \"local_rank\": [1], \"role_rank\": [1], \"role_world_size\": [4]}", "agent_restarts": 0}}
+{"name": "torchelastic.worker.status.FAILED", "source": "WORKER", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": 2, "group_rank": 0, "worker_id": "12606", "role": "default", "hostname": "r33n6.lisa.surfsara.nl", "state": "FAILED", "total_run_time": 90, "rdzv_backend": "static", "raw_error": "{\"message\": \"<NONE>\"}", "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\", \"local_rank\": [2], \"role_rank\": [2], \"role_world_size\": [4]}", "agent_restarts": 0}}
+{"name": "torchelastic.worker.status.FAILED", "source": "WORKER", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": 3, "group_rank": 0, "worker_id": "12607", "role": "default", "hostname": "r33n6.lisa.surfsara.nl", "state": "FAILED", "total_run_time": 90, "rdzv_backend": "static", "raw_error": "{\"message\": \"<NONE>\"}", "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\", \"local_rank\": [3], \"role_rank\": [3], \"role_world_size\": [4]}", "agent_restarts": 0}}
+{"name": "torchelastic.worker.status.SUCCEEDED", "source": "AGENT", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": null, "group_rank": 0, "worker_id": null, "role": "default", "hostname": "r33n6.lisa.surfsara.nl", "state": "SUCCEEDED", "total_run_time": 90, "rdzv_backend": "static", "raw_error": null, "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\"}", "agent_restarts": 0}}
+/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py:354: UserWarning: 
+
+**********************************************************************
+               CHILD PROCESS FAILED WITH NO ERROR_FILE                
+**********************************************************************
+CHILD PROCESS FAILED WITH NO ERROR_FILE
+Child process 12604 (local_rank 0) FAILED (exitcode 1)
+Error msg: Process failed with exitcode 1
+Without writing an error file to <N/A>.
+While this DOES NOT affect the correctness of your application,
+no trace information about the error will be available for inspection.
+Consider decorating your top level entrypoint function with
+torch.distributed.elastic.multiprocessing.errors.record. Example:
+
+  from torch.distributed.elastic.multiprocessing.errors import record
+
+  @record
+  def trainer_main(args):
+     # do train
+**********************************************************************
+  warnings.warn(_no_error_file_warning_msg(rank, failure))
+Traceback (most recent call last):
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/distributed/launch.py", line 173, in <module>
+    main()
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/distributed/launch.py", line 169, in main
+    run(args)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/distributed/run.py", line 621, in run
+    elastic_launch(
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 116, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+    return f(*args, **kwargs)
+  File "/home/fsun/.conda/envs/oneformer/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 245, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+***************************************
+            ./test.py FAILED           
+=======================================
+Root Cause:
+[0]:
+  time: 2022-12-21_23:34:50
+  rank: 0 (local_rank: 0)
+  exitcode: 1 (pid: 12604)
+  error_file: <N/A>
+  msg: "Process failed with exitcode 1"
+=======================================
+Other Failures:
+[1]:
+  time: 2022-12-21_23:34:50
+  rank: 1 (local_rank: 1)
+  exitcode: 1 (pid: 12605)
+  error_file: <N/A>
+  msg: "Process failed with exitcode 1"
+[2]:
+  time: 2022-12-21_23:34:50
+  rank: 2 (local_rank: 2)
+  exitcode: 1 (pid: 12606)
+  error_file: <N/A>
+  msg: "Process failed with exitcode 1"
+[3]:
+  time: 2022-12-21_23:34:50
+  rank: 3 (local_rank: 3)
+  exitcode: 1 (pid: 12607)
+  error_file: <N/A>
+  msg: "Process failed with exitcode 1"
+***************************************
+
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************

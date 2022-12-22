@@ -10,14 +10,17 @@ import mmcv
 import mmcv_custom   # noqa: F401,F403
 import mmseg_custom   # noqa: F401,F403
 import torch
+from PIL import Image
+
 from mmcv.parallel import MMDataParallel, MMDistributedDataParallel
 from mmcv.runner import (get_dist_info, init_dist, load_checkpoint,
                          wrap_fp16_model)
 from mmcv.utils import DictAction
-from mmseg.apis import multi_gpu_test, single_gpu_test
+from mmseg.apis import single_gpu_test#, multi_gpu_test
 from mmseg.datasets import build_dataloader, build_dataset
 from mmseg.models import build_segmentor
 
+EVAL_TRAIN_SET = False
 
 def parse_args():
     parser = argparse.ArgumentParser(
@@ -167,15 +170,29 @@ def main():
             json_file = osp.join(work_dir,
                                  f'eval_single_scale_{timestamp}.json')
 
-    # build the dataloader
-    # TODO: support multiple images per gpu (only minor changes are needed)
-    dataset = build_dataset(cfg.data.test)
+
+    
+    global EVAL_TRAIN_SET
+    EVAL_TRAIN_SET = False
+#     build the dataloader
+#     TODO: support multiple images per gpu (only minor changes are needed)
+    
+    print("EVAL_TRAIN_SET = ", EVAL_TRAIN_SET)
+    if EVAL_TRAIN_SET == True:
+        print("BUILDING TRAIN DATASET INSTEAD OF TEST")
+        dataset = build_dataset(cfg.data.train)
+    else:
+        dataset = build_dataset(cfg.data.test)
+
+
+    
     data_loader = build_dataloader(
         dataset,
         samples_per_gpu=1,
         workers_per_gpu=cfg.data.workers_per_gpu,
         dist=distributed,
         shuffle=False)
+    
 
     # build the model and load checkpoint
     cfg.model.train_cfg = None
@@ -268,6 +285,169 @@ def main():
             if tmpdir is not None and eval_on_format_results:
                 # remove tmp dir when cityscapes evaluation
                 shutil.rmtree(tmpdir)
+
+    
+# Copyright (c) OpenMMLab. All rights reserved.
+import os.path as osp
+import tempfile
+import warnings
+
+import mmcv
+import numpy as np
+import torch
+from mmcv.engine import collect_results_cpu, collect_results_gpu
+from mmcv.image import tensor2imgs
+from mmcv.runner import get_dist_info
+
+
+def np2tmp(array, temp_file_name=None, tmpdir=None):
+    """Save ndarray to local numpy file.
+
+    Args:
+        array (ndarray): Ndarray to save.
+        temp_file_name (str): Numpy file name. If 'temp_file_name=None', this
+            function will generate a file name with tempfile.NamedTemporaryFile
+            to save ndarray. Default: None.
+        tmpdir (str): Temporary directory to save Ndarray files. Default: None.
+    Returns:
+        str: The numpy file name.
+    """
+
+    if temp_file_name is None:
+        temp_file_name = tempfile.NamedTemporaryFile(
+            suffix='.npy', delete=False, dir=tmpdir).name
+    np.save(temp_file_name, array)
+    return temp_file_name
+
+def multi_gpu_test(model,
+                   data_loader,
+                   tmpdir=None,
+                   gpu_collect=False,
+                   efficient_test=False,
+                   pre_eval=False,
+                   format_only=False,
+                   format_args={}):
+    """Test model with multiple gpus by progressive mode.
+
+    This method tests model with multiple gpus and collects the results
+    under two different modes: gpu and cpu modes. By setting 'gpu_collect=True'
+    it encodes results to gpu tensors and use gpu communication for results
+    collection. On cpu mode it saves the results on different gpus to 'tmpdir'
+    and collects them by the rank 0 worker.
+
+    Args:
+        model (nn.Module): Model to be tested.
+        data_loader (utils.data.Dataloader): Pytorch data loader.
+        tmpdir (str): Path of directory to save the temporary results from
+            different gpus under cpu mode. The same path is used for efficient
+            test. Default: None.
+        gpu_collect (bool): Option to use either gpu or cpu to collect results.
+            Default: False.
+        efficient_test (bool): Whether save the results as local numpy files to
+            save CPU memory during evaluation. Mutually exclusive with
+            pre_eval and format_results. Default: False.
+        pre_eval (bool): Use dataset.pre_eval() function to generate
+            pre_results for metric evaluation. Mutually exclusive with
+            efficient_test and format_results. Default: False.
+        format_only (bool): Only format result for results commit.
+            Mutually exclusive with pre_eval and efficient_test.
+            Default: False.
+        format_args (dict): The args for format_results. Default: {}.
+
+    Returns:
+        list: list of evaluation pre-results or list of save file names.
+    """
+    
+    if gpu_collect:
+        print("GPU_COLLECT == True!, might cause errors")
+    
+    if efficient_test:
+        warnings.warn(
+            'DeprecationWarning: ``efficient_test`` will be deprecated, the '
+            'evaluation is CPU memory friendly with pre_eval=True')
+        mmcv.mkdir_or_exist('.efficient_test')
+    # when none of them is set true, return segmentation results as
+    # a list of np.array.
+    assert [efficient_test, pre_eval, format_only].count(True) <= 1, \
+        '``efficient_test``, ``pre_eval`` and ``format_only`` are mutually ' \
+        'exclusive, only one of them could be true .'
+
+    model.eval()
+    results = []
+    dataset = data_loader.dataset
+    # The pipeline about how the data_loader retrieval samples from dataset:
+    # sampler -> batch_sampler -> indices
+    # The indices are passed to dataset_fetcher to get data from dataset.
+    # data_fetcher -> collate_fn(dataset[index]) -> data_sample
+    # we use batch_sampler to get correct data idx
+
+    # batch_sampler based on DistributedSampler, the indices only point to data
+    # samples of related machine.
+    loader_indices = data_loader.batch_sampler
+
+    rank, world_size = get_dist_info()
+    if rank == 0:
+        prog_bar = mmcv.ProgressBar(len(dataset))
+
+#     counter = 0
+    global EVAL_TRAIN_SET
+        
+    for batch_indices, data in zip(loader_indices, data_loader):
+#         print("data: ", data, flush=True)
+        if EVAL_TRAIN_SET:
+            scene_id, img_save_name = data['img_metas'].data[0][0]['ori_filename'].split('-')
+#             print("data['img'][0].shape: ", data['img'].data[0].shape, flush=True) 
+        else:
+            scene_id, img_save_name = data['img_metas'][0].data[0][0]['ori_filename'].split('-')
+#             print("data['img'][0].shape: ", data['img'][0].shape, flush=True) 
+            
+        with torch.no_grad():
+            result = model(return_loss=False, rescale=True, **data)
+            
+#         print("result: ", result, flush=True)
+#         print("np.unique(result[0]): ", np.unique(result[0]), flush=True)    
+#         print("result[0].shape: ", result[0].shape, flush=True)
+
+        # Save segmentation mask to correct dir
+#         print("scene_id, img_save_name: ", scene_id, img_save_name)
+        mask_dir = osp.join("/project/fsun/data/scannet/scans", scene_id, 'ViT_masks')
+        os.makedirs(mask_dir, exist_ok=True)
+        mask_save_path = osp.join(mask_dir, img_save_name)
+        # Add +1 as offset so that 0 label is ignored class
+        mask_im = Image.fromarray(result[0].astype(np.uint8)+1)
+        mask_im.save(mask_save_path)
+
+        if efficient_test:
+            result = [np2tmp(_, tmpdir='.efficient_test') for _ in result]
+
+        if format_only:
+            result = dataset.format_results(
+                result, indices=batch_indices, **format_args)
+        if pre_eval:
+            # TODO: adapt samples_per_gpu > 1.
+            # only samples_per_gpu=1 valid now
+            result = dataset.pre_eval(result, indices=batch_indices)
+
+        results.extend(result)
+
+        if rank == 0:
+            batch_size = len(result) * world_size
+            for _ in range(batch_size):
+                prog_bar.update()
+                
+#         print("Counter system remove pls")
+#         counter += 1
+#         if counter == 1:
+#             break
+
+
+    # collect results from all ranks
+    if gpu_collect:
+        results = collect_results_gpu(results, len(dataset))
+    else:
+        results = collect_results_cpu(results, len(dataset), tmpdir)
+        
+    return results
 
 
 if __name__ == '__main__':

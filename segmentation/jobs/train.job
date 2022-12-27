@@ -1,17 +1,18 @@
 #!/bin/bash
-
-#SBATCH --partition=gpu_titanrtx_shared
-#SBATCH --job-name=ViT
-#SBATCH --gpus=4
+#SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=24
-#SBATCH --time=30:00:00
-#SBATCH --mem=190000MB
-#SBATCH --output=job_logs/train_480p_final.out
+#SBATCH --gpus=4
+#SBATCH --cpus-per-task=18
+#SBATCH --partition=gpu
+#SBATCH --time=01:00:00
+#SBATCH --mem=120G
+#SBATCH --output=job_logs/debug_snellius.out
 
+module purge
+module load 2021
+module load CUDA/11.3.1
 
-#module purge
-#source activate oneformer
+source activate py37
 
 
 sh dist_train.sh configs/scannet/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p.py 4

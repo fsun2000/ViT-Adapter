@@ -442,10 +442,10 @@ def multi_gpu_test(model,
 
 
     # collect results from all ranks
-    if gpu_collect:
-        results = collect_results_gpu(results, len(dataset))
-    else:
-        results = collect_results_cpu(results, len(dataset), tmpdir)
+#     if gpu_collect:
+#         results = collect_results_gpu(results, len(dataset))
+#     else:
+    results = collect_results_cpu(results, len(dataset), tmpdir)
         
     return results
 

@@ -410,7 +410,7 @@ def multi_gpu_test(model,
 
         # Save segmentation mask to correct dir
 #         print("scene_id, img_save_name: ", scene_id, img_save_name)
-        mask_dir = osp.join("/project/fsun/data/scannet/scans", scene_id, 'ViT_masks')
+        mask_dir = osp.join("/home/fsun/data/scannet/scans", scene_id, 'ViT_masks')
         os.makedirs(mask_dir, exist_ok=True)
         mask_save_path = osp.join(mask_dir, img_save_name)
         # Add +1 as offset so that 0 label is ignored class

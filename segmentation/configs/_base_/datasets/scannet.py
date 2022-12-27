@@ -1,6 +1,6 @@
 # dataset settings
 dataset_type = 'ScannetDataset'
-data_root = '/project/fsun/data/scannet_images'
+data_root = '/scratch-shared/fsun/data/scannet_images'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 crop_size = (480, 480)

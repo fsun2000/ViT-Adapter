@@ -173,7 +173,7 @@ def main():
 
     
     global EVAL_TRAIN_SET
-    EVAL_TRAIN_SET = False
+    EVAL_TRAIN_SET = False # DEPRECATED, DO NOT SET TO TRUE
 #     build the dataloader
 #     TODO: support multiple images per gpu (only minor changes are needed)
     
@@ -182,9 +182,11 @@ def main():
         print("BUILDING TRAIN DATASET INSTEAD OF TEST")
         dataset = build_dataset(cfg.data.train)
     else:
+        print("BUILDING TEST DATASET")
         dataset = build_dataset(cfg.data.test)
 
 
+    print("creating dataloader")
     
     data_loader = build_dataloader(
         dataset,
@@ -193,6 +195,7 @@ def main():
         dist=distributed,
         shuffle=False)
     
+    print("building model")
 
     # build the model and load checkpoint
     cfg.model.train_cfg = None
@@ -200,6 +203,8 @@ def main():
     fp16_cfg = cfg.get('fp16', None)
     if fp16_cfg is not None:
         wrap_fp16_model(model)
+        
+    print("loading from checkpoint")
     checkpoint = load_checkpoint(model, args.checkpoint, map_location='cpu')
     if 'CLASSES' in checkpoint.get('meta', {}):
         model.CLASSES = checkpoint['meta']['CLASSES']
@@ -240,8 +245,10 @@ def main():
     else:
         tmpdir = None
 
+    print("launching data or distributed parallel")
     if not distributed:
         model = MMDataParallel(model, device_ids=[0])
+        print("running eval")
         results = single_gpu_test(
             model,
             data_loader,
@@ -257,6 +264,7 @@ def main():
             model.cuda(),
             device_ids=[torch.cuda.current_device()],
             broadcast_buffers=False)
+        print("running eval")
         results = multi_gpu_test(
             model,
             data_loader,
@@ -416,6 +424,8 @@ def multi_gpu_test(model,
         # Add +1 as offset so that 0 label is ignored class
         mask_im = Image.fromarray(result[0].astype(np.uint8)+1)
         mask_im.save(mask_save_path)
+        if img_save_name.split(".")[0] == "0":
+            print("Saving mask to ", mask_dir)
 
         if efficient_test:
             result = [np2tmp(_, tmpdir='.efficient_test') for _ in result]
@@ -445,7 +455,7 @@ def multi_gpu_test(model,
 #     if gpu_collect:
 #         results = collect_results_gpu(results, len(dataset))
 #     else:
-    results = collect_results_cpu(results, len(dataset), tmpdir)
+    # results = collect_results_cpu(results, len(dataset), tmpdir)
         
     return results
 

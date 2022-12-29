@@ -1,20 +1,23 @@
 #!/bin/bash
 
-#SBATCH --partition=gpu_titanrtx
-#SBATCH --job-name=ViT
+#SBATCH --partition=gpu
+#SBATCH --job-name=ViT_val
 #SBATCH --gpus=4
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=24
-#SBATCH --time=36:00:00
-#SBATCH --mem=190000MB
-#SBATCH --output=job_logs/eval_trainset.out
+#SBATCH --cpus-per-task=36
+#SBATCH --time=10:00:00
+#SBATCH --mem=480000MB
+#SBATCH --output=job_logs/eval_trainset_leftovers.out
 
 
 module purge
-source activate oneformer
+
+source activate py37
+
+export NCCL_SOCKET_IFNAME=eno1np0
 
 sh dist_test.sh configs/scannet/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p.py \
-    $HOME/ViT-Adapter/segmentation/work_dirs/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p/best_mIoU_iter_20000.pth \
+    $HOME/ViT-Adapter/segmentation/work_dirs/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p/iter_20000.pth \
     4 --eval mIoU
 
 #python test.py configs/scannet/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p.py \

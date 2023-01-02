@@ -1,6 +1,6 @@
 # dataset settings
 dataset_type = 'ScannetDataset'
-data_root = '/home/fsun/data/scannet_images_train'
+data_root = '/home/fsun/data/ViT_inference' # '/home/fsun/data/scannet_images_test_submission'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 crop_size = (480, 480)

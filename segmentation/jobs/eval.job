@@ -1,13 +1,13 @@
 #!/bin/bash
 
 #SBATCH --partition=gpu
-#SBATCH --job-name=ViT_val
+#SBATCH --job-name=ViT
 #SBATCH --gpus=4
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=36
-#SBATCH --time=10:00:00
+#SBATCH --time=3:00:00
 #SBATCH --mem=480000MB
-#SBATCH --output=job_logs/eval_trainset_leftovers.out
+#SBATCH --output=job_logs/eval_testset_leftovers.out
 
 
 module purge

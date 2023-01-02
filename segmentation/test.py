@@ -397,28 +397,23 @@ def multi_gpu_test(model,
     if rank == 0:
         prog_bar = mmcv.ProgressBar(len(dataset))
 
-#     counter = 0
     global EVAL_TRAIN_SET
         
     for batch_indices, data in zip(loader_indices, data_loader):
-#         print("data: ", data, flush=True)
         if EVAL_TRAIN_SET:
             scene_id, img_save_name = data['img_metas'].data[0][0]['ori_filename'].split('-')
-#             print("data['img'][0].shape: ", data['img'].data[0].shape, flush=True) 
         else:
             scene_id, img_save_name = data['img_metas'][0].data[0][0]['ori_filename'].split('-')
-#             print("data['img'][0].shape: ", data['img'][0].shape, flush=True) 
             
         with torch.no_grad():
             result = model(return_loss=False, rescale=True, **data)
             
-#         print("result: ", result, flush=True)
-#         print("np.unique(result[0]): ", np.unique(result[0]), flush=True)    
-#         print("result[0].shape: ", result[0].shape, flush=True)
-
         # Save segmentation mask to correct dir
-#         print("scene_id, img_save_name: ", scene_id, img_save_name)
-        mask_dir = osp.join("/home/fsun/data/scannet/scans", scene_id, 'ViT_masks')
+#         mask_dir = osp.join("/home/fsun/data/scannet/scans_test", scene_id, 'ViT_masks')
+        
+        # Uncomment to save masks for non-scannet data
+        mask_dir = osp.join("/home/fsun/data/scannet/inference_data/scans_test", scene_id, 'ViT_masks')
+    
         os.makedirs(mask_dir, exist_ok=True)
         mask_save_path = osp.join(mask_dir, img_save_name)
         # Add +1 as offset so that 0 label is ignored class
@@ -445,11 +440,6 @@ def multi_gpu_test(model,
             for _ in range(batch_size):
                 prog_bar.update()
                 
-#         print("Counter system remove pls")
-#         counter += 1
-#         if counter == 1:
-#             break
-
 
     # collect results from all ranks
 #     if gpu_collect:

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#SBATCH --partition=gpu
+#SBATCH --job-name=ViT
+#SBATCH --gpus=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=18
+#SBATCH --time=1:00:00
+#SBATCH --mem=120000MB
+#SBATCH --output=job_logs/inference.out
+
+
+module purge
+
+source activate py37
+cd $HOME/ViT-Adapter/segmentation
+
+export NCCL_SOCKET_IFNAME=eno1np0
+
+CUDA_VISIBLE_DEVICES=0 python inference.py \
+  configs/scannet/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p.py  \
+  $HOME/ViT-Adapter/segmentation/work_dirs/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p/iter_20000.pth  \
+  --scans_dir=/home/fsun/data/inference_data/scans_test \
+  --color_dirname=color_rotated \
+  --skip_freq=10 

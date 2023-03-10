@@ -1,0 +1,152 @@
+/gpfs/home3/fsun/ViT-Adapter/segmentation/mmseg_custom/models/losses/cross_entropy_loss.py:231: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  'Default ``avg_non_ignore`` is False, if you would like to '
+/home/fsun/.conda/envs/py37/lib/python3.7/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+/home/fsun/.conda/envs/py37/lib/python3.7/site-packages/torch/nn/functional.py:3658: UserWarning: The default behavior for interpolate/upsample with float scale_factor changed in 1.6.0 to align with other frameworks/libraries, and now uses scale_factor directly, instead of relying on the computed output size. If you wish to restore the old behavior, please set recompute_scale_factor=True. See the documentation of nn.Upsample for details. 
+  "The default behavior for interpolate/upsample with float scale_factor changed "
+/home/fsun/.conda/envs/py37/lib/python3.7/site-packages/torch/_tensor.py:575: UserWarning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
+To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (Triggered internally at  /pytorch/aten/src/ATen/native/BinaryOps.cpp:467.)
+  return torch.floor_divide(self, other)
+load checkpoint from local path: /home/fsun/ViT-Adapter/segmentation/work_dirs/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p/iter_20000.pth
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1040.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/550.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/600.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1010.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1200.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/870.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/320.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/920.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/60.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/0.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/380.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/640.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/150.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/960.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/410.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/470.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/730.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/790.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/240.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/500.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/560.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1090.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/610.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1060.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1250.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/880.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/330.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/930.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1030.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/390.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1220.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/650.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/100.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/700.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/160.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/970.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/420.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/480.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/20.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/740.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/250.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1100.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/510.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/570.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/50.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/890.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/340.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/940.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1270.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/660.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/110.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/710.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1240.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/80.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/170.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1210.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/980.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/430.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/490.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/750.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/200.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/800.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1180.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/260.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1150.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/520.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/580.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1120.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/840.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/350.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/950.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/670.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/120.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/720.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/180.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/990.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/440.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/10.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1260.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1000.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1230.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/760.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/210.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/810.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/270.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/530.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/40.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/590.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1170.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/850.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/300.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/900.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1140.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/360.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/90.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1110.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/70.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/620.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/680.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/130.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/190.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1080.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/450.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1050.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/770.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1020.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/220.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/820.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/280.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/540.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/860.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/310.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/910.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/370.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1190.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/630.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1160.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/690.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/140.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1130.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/400.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/460.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/780.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/230.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/830.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/30.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/1070.png
+Result is save at /home/fsun/data/inference_data/scans_test/see_current_morning_724/ViT_masks/290.png
+
+JOB STATISTICS
+==============
+Job ID: 2007680
+Cluster: snellius
+User/Group: fsun/fsun
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 18
+CPU Utilized: 00:01:37
+CPU Efficiency: 6.12% of 00:26:24 core-walltime
+Job Wall-clock time: 00:01:28
+Memory Utilized: 11.63 GB
+Memory Efficiency: 9.92% of 117.19 GB

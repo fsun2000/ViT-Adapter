@@ -1,0 +1,150 @@
+/home/fsun/.conda/envs/py37/lib/python3.7/site-packages/torch/distributed/launch.py:164: DeprecationWarning: The 'warn' method is deprecated, use 'warning' instead
+  "The module torch.distributed.launch is deprecated "
+The module torch.distributed.launch is deprecated and going to be removed in future.Migrate to torch.distributed.run
+WARNING:torch.distributed.run:--use_env is deprecated and will be removed in future releases.
+ Please read local_rank from `os.environ('LOCAL_RANK')` instead.
+INFO:torch.distributed.launcher.api:Starting elastic_operator with launch configs:
+  entrypoint       : ./test.py
+  min_nodes        : 1
+  max_nodes        : 1
+  nproc_per_node   : 4
+  run_id           : none
+  rdzv_backend     : static
+  rdzv_endpoint    : 127.0.0.1:29510
+  rdzv_configs     : {'rank': 0, 'timeout': 900}
+  max_restarts     : 0
+  monitor_interval : 5
+  log_dir          : None
+  metrics_cfg      : {}
+
+INFO:torch.distributed.elastic.agent.server.local_elastic_agent:log directory set to: /scratch-local/fsun.2408778/torchelastic_sq1zfbwt/none__gclcf4g
+INFO:torch.distributed.elastic.agent.server.api:[default] starting workers for entrypoint: python
+INFO:torch.distributed.elastic.agent.server.api:[default] Rendezvous'ing worker group
+/home/fsun/.conda/envs/py37/lib/python3.7/site-packages/torch/distributed/elastic/utils/store.py:53: FutureWarning: This is an experimental API and will be changed in future.
+  "This is an experimental API and will be changed in future.", FutureWarning
+INFO:torch.distributed.elastic.agent.server.api:[default] Rendezvous complete for workers. Result:
+  restart_count=0
+  master_addr=127.0.0.1
+  master_port=29510
+  group_rank=0
+  group_world_size=1
+  local_ranks=[0, 1, 2, 3]
+  role_ranks=[0, 1, 2, 3]
+  global_ranks=[0, 1, 2, 3]
+  role_world_sizes=[4, 4, 4, 4]
+  global_world_sizes=[4, 4, 4, 4]
+
+INFO:torch.distributed.elastic.agent.server.api:[default] Starting worker group
+INFO:torch.distributed.elastic.multiprocessing:Setting worker0 reply file to: /scratch-local/fsun.2408778/torchelastic_sq1zfbwt/none__gclcf4g/attempt_0/0/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker1 reply file to: /scratch-local/fsun.2408778/torchelastic_sq1zfbwt/none__gclcf4g/attempt_0/1/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker2 reply file to: /scratch-local/fsun.2408778/torchelastic_sq1zfbwt/none__gclcf4g/attempt_0/2/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker3 reply file to: /scratch-local/fsun.2408778/torchelastic_sq1zfbwt/none__gclcf4g/attempt_0/3/error.json
+EVAL_TRAIN_SET =  EVAL_TRAIN_SET = FalseEVAL_TRAIN_SET =  EVAL_TRAIN_SET = 
+ False BUILDING TEST DATASETFalse
+False
+
+BUILDING TEST DATASET
+BUILDING TEST DATASET
+BUILDING TEST DATASET
+
+dataset: dataset: dataset:    <mmseg_custom.datasets.scannet.ScannetDataset object at 0x154acdc27290><mmseg_custom.datasets.scannet.ScannetDataset object at 0x14ef66be2f50><mmseg_custom.datasets.scannet.ScannetDataset object at 0x14888add9bd0>
+2023-03-08 04:03:04,921 - mmseg - INFO - Loaded 0 images
+
+
+dataset: {'type': 'ScannetDataset', 'data_root': '/home/fsun/data/scannet_images_val', 'img_dir': 'images/validation', 'ann_dir': 'annotations/validation', 'pipeline': [{'type': 'LoadImageFromFile'}, {'type': 'MultiScaleFlipAug', 'img_scale': (1920, 480), 'flip': True, 'transforms': [{'type': 'Resize', 'keep_ratio': True}, {'type': 'ResizeToMultiple', 'size_divisor': 32}, {'type': 'RandomFlip'}, {'type': 'Normalize', 'mean': [123.675, 116.28, 103.53], 'std': [58.395, 57.12, 57.375], 'to_rgb': True}, {'type': 'ImageToTensor', 'keys': ['img']}, {'type': 'Collect', 'keys': ['img']}]}], 'test_mode': True} 
+<mmseg_custom.datasets.scannet.ScannetDataset object at 0x14eaa587bad0>creating dataloader
+{'type': 'ScannetDataset', 'data_root': '/home/fsun/data/scannet_images_val', 'img_dir': 'images/validation', 'ann_dir': 'annotations/validation', 'pipeline': [{'type': 'LoadImageFromFile'}, {'type': 'MultiScaleFlipAug', 'img_scale': (1920, 480), 'flip': True, 'transforms': [{'type': 'Resize', 'keep_ratio': True}, {'type': 'ResizeToMultiple', 'size_divisor': 32}, {'type': 'RandomFlip'}, {'type': 'Normalize', 'mean': [123.675, 116.28, 103.53], 'std': [58.395, 57.12, 57.375], 'to_rgb': True}, {'type': 'ImageToTensor', 'keys': ['img']}, {'type': 'Collect', 'keys': ['img']}]}], 'test_mode': True}
+
+creating dataloader{'type': 'ScannetDataset', 'data_root': '/home/fsun/data/scannet_images_val', 'img_dir': 'images/validation', 'ann_dir': 'annotations/validation', 'pipeline': [{'type': 'LoadImageFromFile'}, {'type': 'MultiScaleFlipAug', 'img_scale': (1920, 480), 'flip': True, 'transforms': [{'type': 'Resize', 'keep_ratio': True}, {'type': 'ResizeToMultiple', 'size_divisor': 32}, {'type': 'RandomFlip'}, {'type': 'Normalize', 'mean': [123.675, 116.28, 103.53], 'std': [58.395, 57.12, 57.375], 'to_rgb': True}, {'type': 'ImageToTensor', 'keys': ['img']}, {'type': 'Collect', 'keys': ['img']}]}], 'test_mode': True}
+{'type': 'ScannetDataset', 'data_root': '/home/fsun/data/scannet_images_val', 'img_dir': 'images/validation', 'ann_dir': 'annotations/validation', 'pipeline': [{'type': 'LoadImageFromFile'}, {'type': 'MultiScaleFlipAug', 'img_scale': (1920, 480), 'flip': True, 'transforms': [{'type': 'Resize', 'keep_ratio': True}, {'type': 'ResizeToMultiple', 'size_divisor': 32}, {'type': 'RandomFlip'}, {'type': 'Normalize', 'mean': [123.675, 116.28, 103.53], 'std': [58.395, 57.12, 57.375], 'to_rgb': True}, {'type': 'ImageToTensor', 'keys': ['img']}, {'type': 'Collect', 'keys': ['img']}]}], 'test_mode': True}
+
+creating dataloadercreating dataloader
+
+building modelbuilding model
+building modelbuilding model
+
+
+/gpfs/home3/fsun/ViT-Adapter/segmentation/mmseg_custom/models/losses/cross_entropy_loss.py:231: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  'Default ``avg_non_ignore`` is False, if you would like to '
+/gpfs/home3/fsun/ViT-Adapter/segmentation/mmseg_custom/models/losses/cross_entropy_loss.py:231: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  'Default ``avg_non_ignore`` is False, if you would like to '
+/gpfs/home3/fsun/ViT-Adapter/segmentation/mmseg_custom/models/losses/cross_entropy_loss.py:231: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  'Default ``avg_non_ignore`` is False, if you would like to '
+/gpfs/home3/fsun/ViT-Adapter/segmentation/mmseg_custom/models/losses/cross_entropy_loss.py:231: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  'Default ``avg_non_ignore`` is False, if you would like to '
+loading from checkpoint
+load checkpoint from local path: /home/fsun/ViT-Adapter/segmentation/work_dirs/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p/iter_20000.pth
+loading from checkpoint
+load checkpoint from local path: /home/fsun/ViT-Adapter/segmentation/work_dirs/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p/iter_20000.pth
+loading from checkpoint
+load checkpoint from local path: /home/fsun/ViT-Adapter/segmentation/work_dirs/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p/iter_20000.pth
+loading from checkpoint
+load checkpoint from local path: /home/fsun/ViT-Adapter/segmentation/work_dirs/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p/iter_20000.pth
+launching data or distributed parallel
+launching data or distributed parallel
+launching data or distributed parallel
+launching data or distributed parallel
+running eval
+running eval
+running eval
+running eval
+completed: 0, elapsed: 0s/home/fsun/.conda/envs/py37/lib/python3.7/site-packages/mmseg/datasets/custom.py:414: RuntimeWarning: Mean of empty slice
+  for ret_metric, ret_metric_value in ret_metrics.items()
+per class results:
+
++----------------+-----+-----+
+|     Class      | IoU | Acc |
++----------------+-----+-----+
+|    ignored     | nan | nan |
+|      wall      | nan | nan |
+|     floor      | nan | nan |
+|    cabinet     | nan | nan |
+|      bed       | nan | nan |
+|     chair      | nan | nan |
+|      sofa      | nan | nan |
+|     table      | nan | nan |
+|      door      | nan | nan |
+|     window     | nan | nan |
+|   bookshelf    | nan | nan |
+|    picture     | nan | nan |
+|    counter     | nan | nan |
+|      desk      | nan | nan |
+|    curtain     | nan | nan |
+|  refrigerator  | nan | nan |
+| shower curtain | nan | nan |
+|     toilet     | nan | nan |
+|      sink      | nan | nan |
+|    bathtub     | nan | nan |
+| otherfurniture | nan | nan |
++----------------+-----+-----+
+Summary:
+
++------+------+------+
+| aAcc | mIoU | mAcc |
++------+------+------+
+| nan  | nan  | nan  |
++------+------+------+
+INFO:torch.distributed.elastic.agent.server.api:[default] worker group successfully finished. Waiting 300 seconds for other agents to finish.
+INFO:torch.distributed.elastic.agent.server.api:Local worker group finished (SUCCEEDED). Waiting 300 seconds for other agents to finish
+/home/fsun/.conda/envs/py37/lib/python3.7/site-packages/torch/distributed/elastic/utils/store.py:71: FutureWarning: This is an experimental API and will be changed in future.
+  "This is an experimental API and will be changed in future.", FutureWarning
+INFO:torch.distributed.elastic.agent.server.api:Done waiting for other agents. Elapsed: 0.0002079010009765625 seconds
+{"name": "torchelastic.worker.status.SUCCEEDED", "source": "WORKER", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": 0, "group_rank": 0, "worker_id": "734683", "role": "default", "hostname": "gcn52.local.snellius.surf.nl", "state": "SUCCEEDED", "total_run_time": 45, "rdzv_backend": "static", "raw_error": null, "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\", \"local_rank\": [0], \"role_rank\": [0], \"role_world_size\": [4]}", "agent_restarts": 0}}
+{"name": "torchelastic.worker.status.SUCCEEDED", "source": "WORKER", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": 1, "group_rank": 0, "worker_id": "734684", "role": "default", "hostname": "gcn52.local.snellius.surf.nl", "state": "SUCCEEDED", "total_run_time": 45, "rdzv_backend": "static", "raw_error": null, "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\", \"local_rank\": [1], \"role_rank\": [1], \"role_world_size\": [4]}", "agent_restarts": 0}}
+{"name": "torchelastic.worker.status.SUCCEEDED", "source": "WORKER", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": 2, "group_rank": 0, "worker_id": "734685", "role": "default", "hostname": "gcn52.local.snellius.surf.nl", "state": "SUCCEEDED", "total_run_time": 45, "rdzv_backend": "static", "raw_error": null, "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\", \"local_rank\": [2], \"role_rank\": [2], \"role_world_size\": [4]}", "agent_restarts": 0}}
+{"name": "torchelastic.worker.status.SUCCEEDED", "source": "WORKER", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": 3, "group_rank": 0, "worker_id": "734686", "role": "default", "hostname": "gcn52.local.snellius.surf.nl", "state": "SUCCEEDED", "total_run_time": 45, "rdzv_backend": "static", "raw_error": null, "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\", \"local_rank\": [3], \"role_rank\": [3], \"role_world_size\": [4]}", "agent_restarts": 0}}
+{"name": "torchelastic.worker.status.SUCCEEDED", "source": "AGENT", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": null, "group_rank": 0, "worker_id": null, "role": "default", "hostname": "gcn52.local.snellius.surf.nl", "state": "SUCCEEDED", "total_run_time": 45, "rdzv_backend": "static", "raw_error": null, "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\"}", "agent_restarts": 0}}
+
+JOB STATISTICS
+==============
+Job ID: 2408778
+Cluster: snellius
+User/Group: fsun/fsun
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 72
+CPU Utilized: 00:17:35
+CPU Efficiency: 26.64% of 01:06:00 core-walltime
+Job Wall-clock time: 00:00:55
+Memory Utilized: 46.37 GB
+Memory Efficiency: 9.89% of 468.75 GB

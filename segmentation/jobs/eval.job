@@ -7,15 +7,22 @@
 #SBATCH --cpus-per-task=36
 #SBATCH --time=3:00:00
 #SBATCH --mem=480000MB
-#SBATCH --output=job_logs/eval_testset_leftovers.out
+#SBATCH --output=job_logs/generate_scannet_25k_masks.out
 
 
 module purge
 
 source activate py37
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/fsun/.conda/envs/py37/lib
 
 export NCCL_SOCKET_IFNAME=eno1np0
 
+### S3DIS rgb panorama images as input using ScanNet labels
+#sh dist_test.sh configs/s3dis/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p.py \
+#    $HOME/ViT-Adapter/segmentation/work_dirs/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p/iter_20000.pth \
+#    4 --eval mIoU
+
+### multi- and single-gpu evaluation (mask-generation) code for ScanNet config
 sh dist_test.sh configs/scannet/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p.py \
     $HOME/ViT-Adapter/segmentation/work_dirs/mask2former_beitv2_adapter_large_896_80k_scannet_ss_480p/iter_20000.pth \
     4 --eval mIoU

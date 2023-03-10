@@ -184,6 +184,9 @@ def main():
     else:
         print("BUILDING TEST DATASET")
         dataset = build_dataset(cfg.data.test)
+        
+    print('dataset: ', dataset)
+    print(cfg.data.test)
 
 
     print("creating dataloader")
@@ -404,23 +407,40 @@ def multi_gpu_test(model,
             scene_id, img_save_name = data['img_metas'].data[0][0]['ori_filename'].split('-')
         else:
             scene_id, img_save_name = data['img_metas'][0].data[0][0]['ori_filename'].split('-')
+
+#         img_save_name = data['img_metas'][0].data[0][0]['ori_filename']
             
         with torch.no_grad():
             result = model(return_loss=False, rescale=True, **data)
             
         # Save segmentation mask to correct dir
 #         mask_dir = osp.join("/home/fsun/data/scannet/scans_test", scene_id, 'ViT_masks')
-        
-        # Uncomment to save masks for non-scannet data
-        mask_dir = osp.join("/home/fsun/data/scannet/inference_data/scans_test", scene_id, 'ViT_masks')
-    
+#         # Uncomment to save masks for non-scannet data
+#         mask_dir = osp.join("/home/fsun/data/scannet/inference_data/scans_test", scene_id, 'ViT_masks')
+#         os.makedirs(mask_dir, exist_ok=True)
+#         mask_save_path = osp.join(mask_dir, img_save_name)
+#         # Add +1 as offset so that 0 label is ignored class
+#         mask_im = Image.fromarray(result[0].astype(np.uint8)+1)
+#         mask_im.save(mask_save_path)
+#         if img_save_name.split(".")[0] == "0":
+#             print("Saving mask to ", mask_dir)
+
+#         # Uncomment to save masks to S3DIS
+#         mask_save_path = osp.join("/scratch-shared/fsun/dvata", *img_save_name.split('-'))
+#         mask_save_path = mask_save_path.replace(f"pano{os.sep}rgb", f"pano{os.sep}ViT_masks")
+
+        mask_dir = osp.join("/home/fsun/temp_dir/scans/tasks/scannet_frames_25k", scene_id, 'ViT_masks')
         os.makedirs(mask_dir, exist_ok=True)
-        mask_save_path = osp.join(mask_dir, img_save_name)
+    
+        mask_save_path = oso.join(mask_dir, img_save_name)
+        
+        print("mask_save_path: ", mask_save_path)
+        
         # Add +1 as offset so that 0 label is ignored class
         mask_im = Image.fromarray(result[0].astype(np.uint8)+1)
         mask_im.save(mask_save_path)
-        if img_save_name.split(".")[0] == "0":
-            print("Saving mask to ", mask_dir)
+        print("Saving mask to ", mask_save_path)
+        
 
         if efficient_test:
             result = [np2tmp(_, tmpdir='.efficient_test') for _ in result]
@@ -428,10 +448,14 @@ def multi_gpu_test(model,
         if format_only:
             result = dataset.format_results(
                 result, indices=batch_indices, **format_args)
-        if pre_eval:
-            # TODO: adapt samples_per_gpu > 1.
-            # only samples_per_gpu=1 valid now
-            result = dataset.pre_eval(result, indices=batch_indices)
+            
+            
+        if len(results) < 10:
+            print("pre_eval is commented out! skipping mIoU evaluation of results...")
+#         if pre_eval:
+#             # TODO: adapt samples_per_gpu > 1.
+#             # only samples_per_gpu=1 valid now
+#             result = dataset.pre_eval(result, indices=batch_indices)
 
         results.extend(result)
 
